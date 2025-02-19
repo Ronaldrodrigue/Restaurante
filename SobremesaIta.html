@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Italiano</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Cannolli">
+            <img src="comidas italianas/Sobremesas/cannolli.png" alt="Cannolli">
+            <div class="menu-info">
+                <h3>Cannolli</h3>
+                <p> É uma das sobremesas mais tradicionais da culinária italiana, originária da Sicília. </p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Cannolli', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Cartoccil">
+            <img src="comidas italianas/Sobremesas/Cartoccil.png" alt="Cartoccil">
+            <div class="menu-info">
+                <h3>Cartoccil</h3>
+                <p>É uma especialidade culinária italiana, especialmente popular na região costeira, como na Campânia e
+                    em Nápoles. </p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Cartoccil', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Crostata">
+            <img src="comidas italianas/Sobremesas/Crostata.png" alt="Crostata">
+            <div class="menu-info">
+                <h3>Crostata</h3>
+                <p>É uma sobremesa tradicional italiana, que pode ser descrita como uma torta de massa quebrada
+                    recheada.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Crostata', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Gelato">
+            <img src="comidas italianas/Sobremesas/gelato.png" alt="Gelato">
+            <div class="menu-info">
+                <h3>Gelato</h3>
+                <p> É a versão italiana do sorvete, mas com algumas diferenças importantes que o tornam mais denso e
+                    cremoso.</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Gelato', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Panetone">
+            <img src="comidas italianas/Sobremesas/panetone.png" alt="Panetone">
+            <div class="menu-info">
+                <h3>Panetone</h3>
+                <p>É uma tradicional sobremesa italiana, especialmente popular durante o período do Natal e do Ano Novo.
+                </p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Panetone', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Tiramisu">
+            <img src="comidas italianas/Sobremesas/Tiramisu.png" alt="Tiramisu">
+            <div class="menu-info">
+                <h3>Tiramisu</h3>
+                <p>É uma das sobremesas mais famosas e adoradas da culinária italiana, especialmente conhecida por sua
+                    combinação .</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Tiramisu', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Torrone">
+            <img src="comidas italianas/Sobremesas/torrone.png" alt="Torrone">
+            <div class="menu-info">
+                <h3>Torrone</h3>
+                <p>É um doce tradicional italiano, especialmente popular durante o período de Natal e outras
+                    celebrações.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Torrone', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="CardapioIta.html" class="btn-beverages">Voltar ao Cardápio Principal</a>
+        <a href="BebidasIta.html" class="btn-beverages">Cardápio Bebidas</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

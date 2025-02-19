@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Brasileiro(Sobremesa)</title>
+</head>
+
+<body>
+
+
+    <!-- Barra de Navegação -->
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_Reserva.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="menu-item" data-name="Brigadeiro">
+            <img src="Brasil/Sobremesa/Brigadeiro.png" alt="Brigadeiro">
+            <div class="menu-info">
+                <h3>Brigadeiro</h3>
+                <p>Doce tradicional brasileiro feito de leite condensado, chocolate e granulado.</p>
+                <p class="price">R$ 4,00</p>
+                <button onclick="addToCart('Brigadeiro', 4.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pé de Moleque">
+            <img src="Brasil/Sobremesa/Pé de moleque.png" alt="Pé de Moleque">
+            <div class="menu-info">
+                <h3>Pé de Moleque</h3>
+                <p>é um doce típico da culinária brasileira, feito a partir da mistura de amendoim torrado com rapadura.
+                </p>
+                <p class="price">R$ 5,00</p>
+                <button onclick="addToCart('Pé de Moleque', 5.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Paçoca de Amendoim">
+            <img src="Brasil/Sobremesa/Paçoca de amendoim.png" alt="Paçoca de Amendoim">
+            <div class="menu-info">
+                <h3>Paçoca de Amendoim</h3>
+                <p>é um doce feito de amendoim moído, açúcar e sal.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Paçoca de Amendoim', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pamonha">
+            <img src="Brasil/Sobremesa/Pamonha.png" alt="Pamonha">
+            <div class="menu-info">
+                <h3>Pamonha</h3>
+                <p>é uma iguaria tradicional da culinária brasileira, especialmente popular nas regiões Nordeste e
+                    Sudeste do país.</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Pamonha', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pudim">
+            <img src="Brasil/Sobremesa/Pudim.png" alt="Pudim">
+            <div class="menu-info">
+                <h3>Pudim</h3>
+                <p>É uma sobremesa cremosa, com uma tonalidade levemente amarelada e uma calda de caramelo que
+                adiciona sabor.</p>
+                <p class="price">R$ 8,00</p>
+                <button onclick="addToCart('Pudim', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Cocada">
+            <img src="Brasil/Sobremesa/Cocada.png" alt="Cocada">
+            <div class="menu-info">
+                <h3>Cocada</h3>
+                <p>É uma sobremesa cremosa, com uma tonalidade levemente amarelada e uma calda de caramelo que
+                adiciona sabor.</p>
+                <p class="price">R$ 8,00</p>
+                <button onclick="addToCart('Cocada', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Goiabada">
+            <img src="Brasil/Sobremesa/Goiabada.png" alt="Goiabada">
+            <div class="menu-info">
+                <h3>Goiabada</h3>
+                <p>A goiabada é um doce tradicional brasileiro que conquistou paladares ao longo de gerações.</p>
+                <p class="price">R$ 12,00</p>
+                <button onclick="addToCart('Goiabada', 12.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Curau de Milho">
+            <img src="Brasil/Sobremesa/Curau de milho.png" alt="Curau de Milho">
+            <div class="menu-info">
+                <h3>Curau de Milho</h3>
+                <p>iguaria típica da culinária brasileira. Doce originado da combinação do pudim europeu.</p>
+                <p class="price">R$ 8,50</p>
+                <button onclick="addToCart('Curau de Milho', 8.50)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Bolo de Aipim">
+            <img src="Brasil/Sobremesa/Bolo de aipim.png" alt="Bolo de Aipim">
+            <div class="menu-info">
+                <h3>Bolo de Aipim</h3>
+                <p>é uma deliciosa iguaria brasileira conhecida por sua textura úmida e sabor reconfortante.</p>
+                <p class="price">R$ 26,00</p>
+                <button onclick="addToCart('Bolo de Aipim', 26.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Sagu de Vinho com Creme">
+            <img src="Brasil/Sobremesa/Sagu de vinho com creme.png" alt="Sagu de vinho com creme">
+            <div class="menu-info">
+                <h3>Sagu de Vinho com Creme</h3>
+                <p>é uma sobremesa simples e super tradicional originária da região sul do Brasil. </p>
+                <p class="price">R$ 12,00</p>
+                <button onclick="addToCart('Sagu de Vinho com Creme', 12.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pavê">
+            <img src="Brasil/Sobremesa/pavê.jpg" alt="Pavê">
+            <div class="menu-info">
+                <h3>Pavê</h3>
+                <p>é uma espécie de torta gelada que tem como base biscoitos do tipo champanhe ou maizena inteiros ou
+                    uma massa de bolo. </p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Pavê', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Beijinho">
+            <img src="Brasil/Sobremesa/beijinho.jpg" alt="Beijinho">
+            <div class="menu-info">
+                <h3>Beijinho</h3>
+                <p>o beijinho leva esse nome justamente por ser uma adaptação do doce chamado beijos de freira, bem
+                    tradicional no brasil.</p>
+                <p class="price">R$ 4,00</p>
+                <button onclick="addToCart('Beijinho', 4.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Mousse de Maracujá">
+            <img src="Brasil/Sobremesa/mousse de maracujá.jpg" alt="Mousse Maracujá">
+            <div class="menu-info">
+                <h3>Mousse de Maracujá</h3>
+                <p>é um tipo de sobremesa cremosa feita de ovos e/ou natas em combinação com outros ingredientes que lhe
+                    dão sabor.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Mousse de Maracujá', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>   
+    </div>
+
+    <div class="btn-container">
+        <a href="CardapioBra.html" class="btn-beverages">Voltar ao Cardápio Principal</a>
+        <a href="bebidasBra.html" class="btn-beverages">Cardápio de Bebidas</a>
+    </div>
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

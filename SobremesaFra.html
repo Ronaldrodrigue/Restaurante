@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Francês</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Buche-de-Noel">
+            <img src="comidas típicas francesas/Sobremesas/Buche-de-Noel.png" alt="Buche-de-Noel">
+            <div class="menu-info">
+                <h3>Buche-de-Noel</h3>
+                <p>É sem dúvida um dos bolos mais amados e icônicos da França, apreciado por seus sabores deliciosos e aparência festiva. </p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Buche-de-Noel', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Chocolate-Eclair">
+            <img src="comidas típicas francesas/Sobremesas/Chocolate-Eclair.png" alt="Chocolate-Eclair">
+            <div class="menu-info">
+                <h3>Chocolate-Eclair</h3>
+                <p>É uma sobremesa deliciosa e indulgente originária da França, famosa por sua combinação única de texturas e sabores.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Chocolate-Eclair', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Creme-brulee">
+            <img src="comidas típicas francesas/Sobremesas/Creme-brulee.png" alt="Creme-brulee">
+            <div class="menu-info">
+                <h3>Creme-brulee</h3>
+                <p>A renomada sobremesa apreciada por muitos, é um requintado creme de ovos elegantemente coroado com uma camada de açúcar.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Creme-brulee', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Creme-Caramel">
+            <img src="comidas típicas francesas/Sobremesas/Creme-Caramel.png" alt="Cassoulet">
+            <div class="menu-info">
+                <h3>Creme-Caramel</h3>
+                <p>Foi adotado e celebrado pelas tradições culinárias inglesa e espanhola, as origens desta adorada sobremesa são amplamente reconhecidas.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Creme-Caramel', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Mil folhas">
+            <img src="comidas típicas francesas/Sobremesas/Mil folhas.png" alt="Mil folhas">
+            <div class="menu-info">
+                <h3>Mil folhas</h3>
+                <p>É muitas vezes chamado de “Napoleão” em algumas regiões, é uma sobremesa francesa clássica que se traduz como “mil folhas”.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Mil folhas', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Mousse-au-chocolate">
+            <img src="comidas típicas francesas/Sobremesas/Mousse-au-chocolate.png" alt="Mousse-au-chocolate">
+            <div class="menu-info">
+                <h3>Mousse-au-chocolate</h3>
+                <p>É uma sobremesa decadente que é habilidosamente elaborada usando chocolate amargo de alta qualidade, ovos frescos.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Mousse-au-chocolate', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Paris-Brest">
+            <img src="comidas típicas francesas/Sobremesas/Paris-Brest-min.jpg" alt="Paris-Brest">
+            <div class="menu-info">
+                <h3>Paris-Brest</h3>
+                <p>É uma sobremesa francesa de alta qualidade, famosa e icônica, conhecida por seus sabores requintados e apresentação elegante.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Paris-Brest', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Petit-Four">
+            <img src="comidas típicas francesas/Sobremesas/Petit-Four.png" alt="Petit-Four">
+            <div class="menu-info">
+                <h3>Petit-Four</h3>
+                <p>É um delicioso doce do tamanho de uma mordida ou um saboroso petisco que geralmente é elegantemente apresentado como salgado.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Petit-Four', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Tarte-Aux-Citron">
+            <img src="comidas típicas francesas/Sobremesas/Tarte-Aux-Citron.png" alt="Tarte-Aux-Citron">
+            <div class="menu-info">
+                <h3>Tarte-Aux-Citron</h3>
+                <p>É uma sobremesa deliciosa que captura a essência da confeitaria francesa, caracterizada por sua crosta crocante.</p>
+                <p class="price">R$ 40,00</p>
+                <button onclick="addToCart('Tarte-Aux-Citron', 40.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Tarte-aux-Pommes">
+            <img src="comidas típicas francesas/Sobremesas/Tarte-aux-Pommes.png" alt="Tarte-aux-Pommes">
+            <div class="menu-info">
+                <h3>Tarte-aux-Pommes</h3>
+                <p>Muitas vezes considerada a sobremesa francesa por excelência, ocupa um lugar especial no coração dos amantes de doces.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Tarte-aux-Pommes', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="CardapioFra.html" class="btn-beverages">Voltar ao Cardápio Principal</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

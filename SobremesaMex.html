@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Mexicano Sobremesas</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Arroz con Leche">
+            <img src="México/Sobremesa México/Arroz con Leche.png" alt="Arroz con Leche">
+            <div class="menu-info">
+                <h3>Arroz con Leche</h3>
+                <p>É uma sobremesa tradicional da culinária mexicana (e de muitos outros países da América Latina),
+                    simples e deliciosa.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Arroz con Leche', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Buñuelo">
+            <img src="México/Sobremesa México/Buñuelo.png" alt="Buñuelo">
+            <div class="menu-info">
+                <h3>Buñuelo</h3>
+                <p> É uma deliciosa sobremesa frita tradicional em várias partes da América Latina, incluindo o México.
+                </p>
+                <p class="price">R$ 18,00</p>
+                <button onclick="addToCart('Buñuelo', 18.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Chcoflan">
+            <img src="México/Sobremesa México/Chcoflan.png" alt="Chcoflan">
+            <div class="menu-info">
+                <h3>Chcoflan</h3>
+                <p>É uma sobremesa mexicana irresistível que combina dois deliciosos doces em um só prato: bolo de
+                    chocolate e flan (pudim).</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Chcoflan', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Churros">
+            <img src="México/Sobremesa México/Churros.png" alt="Churros">
+            <div class="menu-info">
+                <h3>Churros</h3>
+                <p>Uma sobremesa deliciosa e popular, originária da Espanha, mas amplamente consumida na culinária
+                    mexicana.</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Churros', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Dulce de Calabaza">
+            <img src="México/Sobremesa México/Dulce de calabaza.png" alt="Dulce de Calabaza">
+            <div class="menu-info">
+                <h3>Dulce de Calabaza</h3>
+                <p>É uma sobremesa tradicional mexicana feita a partir de abóbora (geralmente a variedade calabaza).</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Dulce de Calabaza', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Jericalle">
+            <img src="México/Sobremesa México/Jericalle.png" alt="Jericalle">
+            <div class="menu-info">
+                <h3>Jericalle</h3>
+                <p> É muito popular durante festas e celebrações, especialmente no Dia de Todos os Santos.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Jericalle', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Margarita Pie">
+            <img src="México/Sobremesa México/Margarita Pie.png" alt="Margarita Pie">
+            <div class="menu-info">
+                <h3>Margarita Pie</h3>
+                <p>É uma sobremesa inspirada no famoso coquetel Margarita, que mistura tequila, limão e licor de
+                    laranja. </p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Margarita Pie', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pan de Muertos">
+            <img src="México/Sobremesa México/Pan de Muertos.png" alt="Pan de Muertos">
+            <div class="menu-info">
+                <h3>Pan de Muertos</h3>
+                <p>é geralmente moldado em forma redonda, simbolizando o ciclo da vida e da morte, e decorado com
+                    "ossos".</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Pan de Muertos', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Polvorones de Naranja">
+            <img src="México/Sobremesa México/Polvorones de Naranja.png" alt="Polvorones de Naranja">
+            <div class="menu-info">
+                <h3>Polvorones de Naranja</h3>
+                <p>São deliciosos biscoitos típicos da culinária mexicana, conhecidos por sua textura leve e quebradiça.
+                </p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Polvorones de Naranja', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Rosca de Reyes">
+            <img src="México/Sobremesa México/Rosca de Reyes.png" alt="Rosca de Reyes">
+            <div class="menu-info">
+                <h3>Rosca de Reyes</h3>
+                <p>É um pão doce tradicional mexicano, especialmente preparado para celebrar o Dia de Reyes.</p>
+                <p class="price">R$ 25,00</p>
+                <button onclick="addToCart('Rosca de Reyes', 25.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="CardapioMex.html" class="btn-beverages">Voltar ao Cardápio Principal</a>
+        <a href="BebidasMex.html" class="btn-beverages">Cardápio de Bebidas</a>
+        
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

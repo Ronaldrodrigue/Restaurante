@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Asiático</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="menu-item" data-name="Chè Chuối">
+            <img src="Asiático/Sobremesa asiáticas/Chè Chuối - Vietnã.png" alt="Chè Chuối">
+            <div class="menu-info">
+                <h3>Chè Chuối</h3>
+                <p>É uma sobremesa vietnamita cremosa e reconfortante feita com banana cozida em leite de coco, combinada com pérolas de tapioca.</p>
+                <p class="price">R$ 18,00</p>
+                <button onclick="addToCart('Chè Chuối', 18.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Chè xôi nước">
+            <img src="Asiático/Sobremesa asiáticas/Chè xôi nước - Vietnã.png" alt="Chè xôi nước">
+            <div class="menu-info">
+                <h3>Chè xôi nước</h3>
+                <p>Uma sobremesa vietnamita tradicional feita com bolinhos de arroz glutinoso recheados com pasta de feijão mungo doce.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Chè xôi nước', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Dorayaki - Japão">
+            <img src="Asiático/Sobremesa asiáticas/Dorayaki - Japão.png" alt="Dorayaki - Japão">
+            <div class="menu-info">
+                <h3>Dorayaki</h3>
+                <p>É uma sobremesa japonesa composta por duas panquecas macias e levemente adocicadas, recheadas tradicionalmente com anko.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Dorayaki', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Kanafeh">
+            <img src="Asiático/Sobremesa asiáticas/Kanafeh - Árabe.png" alt="Kanafeh">
+            <div class="menu-info">
+                <h3>Kanafeh</h3>
+                <p>Uma sobremesa tradicional do Oriente Médio feita com uma massa crocante de kataifi (fios de massa fina).</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Kanafeh', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Khanom Tom">
+            <img src="Asiático/Sobremesa asiáticas/Khanom Tom.png" alt="Khanom Tom">
+            <div class="menu-info">
+                <h3>Khanom Tom</h3>
+                <p>É um doce tradicional tailandês feito com bolinhas de arroz glutinoso recheadas com coco ralado caramelizado.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Khanom Tom', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Maamoul">
+            <img src="Asiático/Sobremesa asiáticas/Maamoul - Árabe .png" alt="Maamoul">
+            <div class="menu-info">
+                <h3>Maamoul</h3>
+                <p>É um biscoito tradicional do Oriente Médio, feito com uma massa macia à base de sêmola ou farinha de trigo.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Maamoul', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Wagashi">
+            <img src="Asiático/Sobremesa asiáticas/Wagashi - Japão.png" alt="Wagashi">
+            <div class="menu-info">
+                <h3>Wagashi</h3>
+                <p>São doces tradicionais japoneses, geralmente feitos com ingredientes naturais e pouco processados.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Wagashi', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Yakgwa ">
+            <img src="Asiático/Sobremesa asiáticas/Yakgwa - Coreano.png" alt="Yakgwa ">
+            <div class="menu-info">
+                <h3>Yakgwa </h3>
+                <p>É um doce tradicional coreano feito com uma massa à base de farinha de trigo, mel, óleo de gergelim e vinho de arroz.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Yakgwa ', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Yaksik">
+            <img src="Asiático/Sobremesa asiáticas/Yaksik - Coreano.png" alt="Yaksik">
+            <div class="menu-info">
+                <h3>Yaksik</h3>
+                <p>É um prato doce tradicional coreano feito com arroz glutinoso, frutas secas (como damascos, ameixas e castanhas), nozes, e mel.</p>
+                <p class="price">R$ 28,00</p>
+                <button onclick="addToCart('Yaksik', 28.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="CardapioAsi.html" class="btn-beverages">Voltar ao Cardápio Principal</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+</html>
