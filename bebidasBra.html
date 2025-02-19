@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CardapioBE.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Sobremesas</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_Reserva.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Coca Cola">
+            <img src="Brasil/Bebidas/coca_cola_1l-removebg-preview.png" alt="Coca Cola">
+            <div class="menu-info">
+                <h3>Coca Cola 1L</h3>
+                <p>Refresco com sabor de Coca Cola, típico do Brasil.</p>
+                <p class="price">R$ 8,00</p>
+                <button onclick="addToCart('Coca Cola 1L', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Coca Cola">
+            <img src="Brasil/Bebidas/Coca cola 2l.png" alt="Coca Cola">
+            <div class="menu-info">
+                <h3>Coca Cola 2L</h3>
+                <p>Refresco com sabor de Coca Cola, típico do Brasil.</p>
+                <p class="price">R$ 12,00</p>
+                <button onclick="addToCart('Coca Cola 2L', 12.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Guaraná">
+            <img src="Brasil/Bebidas/img guarana.jpg" alt="Guaraná">
+            <div class="menu-info">
+                <h3>Guaraná</h3>
+                <p>Refresco com sabor de guaraná, típico do Brasil.</p>
+                <p class="price">R$ 5,00</p>
+                <button onclick="addToCart('Guaraná', 5.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Caipirinha">
+            <img src="Brasil/Bebidas/caipirinha.png" alt="Caipirinha">
+            <div class="menu-info">
+                <h3>Caipirinha</h3>
+                <p>O clássico drink brasileiro, feito com cachaça, limão, açúcar e gelo.</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Caipirinha', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Água de Coco">
+            <img src="Brasil/Bebidas/Agua de coco natural.png" alt="Água de Coco">
+            <div class="menu-info">
+                <h3>Água de Coco Natural</h3>
+                <p>Refrescante água de coco, ideal para o calor.</p>
+                <p class="price">R$ 8,00</p>
+                <button onclick="addToCart('Água de Coco', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Cajuína">
+            <img src="Brasil/Bebidas/CAJUINA-2L.png" alt="Cajuína">
+            <div class="menu-info">
+                <h3>Cajuína</h3>
+                <p>Refresco com sabor de Cajuína, origem do Ceará, e típico do Brasil.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Cajuína 2L', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Cajuína Nordestina">
+            <img src="Brasil/Bebidas/Cajuina.nordestina.png" alt="Cajuína Nordestina">
+            <div class="menu-info">
+                <h3>Cajuína Nordestina</h3>
+                <p>é uma bebida típica do nordeste brasileiro.</p>
+                <p class="price">R$ 12,00</p>
+                <button onclick="addToCart('Cajuína Nordestina', 12.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Fanta Laranja">
+            <img src="Brasil/Bebidas/Fanta laranja.png" alt="Fanta Laranja">
+            <div class="menu-info">
+                <h3>Fanta Laranja</h3>
+                <p>Refresco com sabor de Fanta Laranja, típico do Brasil.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Fanta Laranja 2L', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Fanta Uva">
+            <img src="Brasil/Bebidas/Fanta uva.png" alt="Fanta Uva">
+            <div class="menu-info">
+                <h3>Fanta Uva</h3>
+                <p>Refresco com sabor de Fanta Uva, típico do Brasil.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Fanta Uva 2L', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Vinho Del Rei">
+            <img src="Brasil/Bebidas/Vinho Del Rei.png" alt="Vinho Del Rei">
+            <div class="menu-info">
+                <h3>Vinho Del Rei</h3>
+                <p>Produzido a partir da uva Bordô, uma variedade muito popular no Brasil.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Vinho Del Rei', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Vinho Pergola">
+            <img src="Brasil/Bebidas/Vinho pergola.png" alt="Vinho Pergola">
+            <div class="menu-info">
+                <h3>Vinho Pergola</h3>
+                <p>Possui um visual de cor vermelho violáceo, aromas de frutas vermelhas e frescos. </p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Vinho Pergola', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Guaraná Jesus">
+            <img src="Brasil/Bebidas/Guaraná Jesus.png" alt="Guaraná Jesus">
+            <div class="menu-info">
+                <h3>Guaraná Jesus</h3>
+                <p>Cor rosa: sua tonalidade vibrante é obtida por meio de corantes alimentícios.</p>
+                <p class="price">R$ 8,00</p>
+                <button onclick="addToCart('Guaraná Jesus', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Suco Acerola">
+            <img src="Brasil/Bebidas/Suco de Acerola.png" alt="Suco Acerola">
+            <div class="menu-info">
+                <h3>Suco de Acerola(natural)</h3>
+                <p>apresenta grande quantidade de vitamina C, boa fonte de vitamina A (caroteno).</p>
+                <p class="price">R$ 8,00</p>
+                <button onclick="addToCart('Suco Acerola', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Suco Maracujá">
+            <img src="Brasil/Bebidas/Suco de Maracujá.png" alt="Suco Maracujá">
+            <div class="menu-info">
+                <h3>Suco Maracujá</h3>
+                <p>O maracujá é fonte de vitaminas A, C e do complexo B, um suco bem saboroso.</p>
+                <p class="price">R$ 8,00</p>
+                <button onclick="addToCart('Suco Maracujá', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Suco Laranja">
+            <img src="Brasil/Bebidas/Suco Laranja.png" alt="Suco Laranja">
+            <div class="menu-info">
+                <h3>Suco Laranja</h3>
+                <p>É formada por gomos amarelo-claro à vermelho que abrigam o suco da fruta que é usado ao suco.</p>
+                <p class="price">R$ 8,00</p>
+                <button onclick="addToCart('Suco Laranja', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+    <div class="btn-container">
+        <a href="SobremesaBra.html" class="btn-beverages">Cardápio de Sobremesas</a>
+        <a href="CardapioBra.html" class="btn-beverages">Voltar</a>
+    </div>
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

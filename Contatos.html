@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="contatos.css">
+    <link rel="stylesheet" href="site.css">
+    <title>CulturaÀMesa - Contatos</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="#" class="logo">
+                Cultura<span>À</span>Mesa
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_Reserva.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>  
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <a href="página_inicial.html" class="back-to-home">
+        <i class='bx bx-arrow-back'></i>
+    </a>
+    <section class="contatos-section">
+        <div class="contatos-heading">
+            <h2>Entre em Contato</h2>
+            <p>Tem alguma dúvida, sugestão ou apenas quer conversar com a gente? Fique à vontade para enviar uma mensagem abaixo ou entrar em contato pelos nossos canais.</p>
+        </div>
+
+        <div class="contatos-form">
+            <form id="contatos-form" action="enviar_contato.php" method="POST">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Sua mensagem" required></textarea>
+
+                <button type="enviar" class="cta-btn">Enviar</button>
+            </form>
+        </div>
+
+        <div class="contatos-info">
+            <p>Ou entre em contato diretamente pelos nossos canais:</p>
+            <ul>
+                <li><i class='bx bx-phone'></i> +55 89 99420-9570</li>
+                <li><i class='bx bx-mail-send'></i>@culturaamesaoficial.com.br</li>
+                <li><i class='bx bx-location-plus'></i> R. Sen. Candido Ferraz - Estação - Paulistana, PI</li>
+                <li><i class="bi bi-instagram"></i> <a href="https://www.instagram.com/culturaamesa" target="_blank">@culturaamesaoficial</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="creditos-section">
+        <div class="creditos">
+            <h3>Desenvolvedores:</h3>
+            <p>Site criado por <a href="https://www.instagram.com/devcreator1" target="_blank">Gabriela Sthefani</a>, <a href="https://www.instagram.com/devcreator2" target="_blank">Paulo Henrique, </a><a href="https://www.instagram.com/devcreator1" target="_blank">Ravenna</a>, <a href="https://www.instagram.com/devcreator1" target="_blank">Ronaldo</a>, <a href="https://www.instagram.com/devcreator1" target="_blank">Talita</a>.</p>
+            <p>&copy; 2025 CulturaÀMesa - Todos os direitos reservados.</p>
+        </div>
+        <a href="página_inicial.html" class="btn-voltar">Voltar</a>
+    </section>
+   
+    <script src="site.js"></script>
+</body>
+</html>

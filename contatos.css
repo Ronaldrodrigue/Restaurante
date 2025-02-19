@@ -1,0 +1,278 @@
+header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; 
+    z-index: 1000; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    padding: 10px 0;
+}
+
+body {
+    padding-top: 80px; 
+    margin: 0;
+}
+
+.contatos-section {
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.contatos-section:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contatos-heading h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contatos-heading p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.contatos-form {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.contatos-form:hover {
+    transform: translateY(-5px);
+}
+
+.contatos-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contatos-form input, .contatos-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #444;
+    background-color: #fff;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.contatos-form input:focus, .contatos-form textarea:focus {
+    border-color: #ff7f50;
+    background-color: #fff9f4;
+}
+
+.contatos-form button.cta-btn {
+    background-color: #dc3b1f;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contatos-form button.cta-btn:hover {
+    background-color: #ff6347;
+    transform: translateY(-3px);
+}
+
+.contatos-form button.cta-btn:active {
+    transform: translateY(2px);
+}
+
+.feedback-message {
+    color: rgb(190, 103, 10);
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.contatos-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.contatos-info:hover {
+    transform: translateY(-5px);
+}
+
+.contatos-info p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.contatos-info ul li {
+    font-size: 14px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    transition: transform 0.3s ease;
+}
+
+.contatos-info ul li:hover {
+    transform: translateX(5px);
+}
+
+.contatos-info ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #ff7f50;
+    transition: color 0.3s ease;
+}
+
+.contatos-info ul li i:hover {
+    color: #ff6347;
+}
+
+.contatos-info ul li a {
+    color: #444;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contatos-info ul li a:hover {
+    color: #ff7f50;
+}
+
+.creditos-section {
+    background-color: #f5f5f5; 
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 50px;
+    border-top: 2px solid #ff7f50; 
+}
+
+.creditos {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff; 
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.creditos:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+}
+
+.creditos h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.creditos p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.creditos a {
+    color: #ff7f50;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.creditos a:hover {
+    color: #ff6347; 
+    transform: translateX(5px);
+}
+
+.creditos p a {
+    font-weight: bold;
+}
+
+.creditos p span {
+    font-style: italic;
+    color: #777;
+}
+
+
+.creditos p:last-child {
+    font-size: 14px;
+    color: #999;
+    font-style: italic;
+    animation: fadeInRight 1s ease-out 0.5s forwards; 
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.creditos p:last-child:hover {
+    color: #ff7f50; 
+    transform: scale(1.05); 
+    transition: all 0.3s ease;
+}
+
+.btn-voltar {
+    display: inline-block;
+    background-color: #d15410; 
+    color: white;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px 0; 
+}
+
+.btn-voltar:hover {
+    background-color: #c45b0b;
+    transform: translateY(-3px);
+}
+
+.btn-voltar:active {
+    transform: translateY(0);
+}

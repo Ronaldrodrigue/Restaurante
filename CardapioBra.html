@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Brasileiro</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Feijoada">
+            <img src="Brasil/Feijoada-removebg-preview.png" alt="Feijoada">
+            <div class="menu-info">
+                <h3>Feijoada</h3>
+                <p>O prato nacional do Brasil. Feijão preto, carne de porco e acompanhamentos tradicionais.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Feijoada', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Moqueca">
+            <img src="Brasil/Moqueca Baiana.png" alt="Moqueca Baiana">
+            <div class="menu-info">
+                <h3>Moqueca Baiana</h3>
+                <p>Peixe ou camarão cozido com azeite de dendê, leite de coco e temperos da Bahia.</p>
+                <p class="price">R$ 45,00</p>
+                <button onclick="addToCart('Moqueca Baiana', 45.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Churrasco">
+            <img src="Brasil/Prato de churrasco gaúcho.png" alt="Churrasco">
+            <div class="menu-info">
+                <h3>Churrasco Gaúcho</h3>
+                <p>Carne grelhada ao estilo tradicional do Sul, com acompanhamentos como farofa e vinagrete.</p>
+                <p class="price">R$ 50,00</p>
+                <button onclick="addToCart('Churrasco Gaúcho', 50.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Acarajé">
+            <img src="Brasil/Acarajé.png" alt="Acarajé">
+            <div class="menu-info">
+                <h3>Acarajé</h3>
+                <p>Bolinho de feijão-fradinho frito no azeite de dendê, recheado com camarão.</p>
+                <p class="price">R$ 25,00</p>
+                <button onclick="addToCart('Acarajé', 25.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Mungunzá Salgado">
+            <img src="Brasil/mungunza-salgado.png" alt="Mungunzá">
+            <div class="menu-info">
+                <h3>Mungunzá Salgado</h3>
+                <p>Um prato popular brasileiro feito de milho, feijão, linguiça, toucinho suíno.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Mungunzá Salgado', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Arroz com Pequi">
+            <img src="Brasil/arroz com pequi.png" alt="Arroz com Pequi">
+            <div class="menu-info">
+                <h3>Arroz com Pequi</h3>
+                <p>Arroz com pequi é um prato típico na região Centro-Oeste do Brasil, bem tostadas.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Arroz com Pequi', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Arroz Carreteiro">
+            <img src="Brasil/arroz-carreteiro.png" alt="Arroz Carreteiro">
+            <div class="menu-info">
+                <h3>Arroz Carreteiro</h3>
+                <p>é um prato tradicional do Rio Grande do Sul. Ele foi criado pelos carreteiros.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Arroz Carreteiro', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Baião de Dois">
+            <img src="Brasil/baião de dois.png" alt="Baião de Dois">
+            <div class="menu-info">
+                <h3>Baião de Dois</h3>
+                <p>é um prato típico do Nordeste do Brasil, vindo do Ceará, sendo Fejão com Arroz. </p>
+                <p class="price">R$ 25,00</p>
+                <button onclick="addToCart('Baião de Dois', 25.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Tacaca">
+            <img src="Brasil/tacaca.png" alt="Tacaca">
+            <div class="menu-info">
+                <h3>Tacaca</h3>
+                <p>É uma espécie de sopa feita de tucupi, um líquido extraído da mandioca.</p>
+                <p class="price">R$ 50,00</p>
+                <button onclick="addToCart('Tacaca', 50.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Virado à Paulista">
+            <img src="Brasil/virada paulista.png" alt="Virado à Paulista">
+            <div class="menu-info">
+                <h3>Virado à Paulista</h3>
+                <p> A combinação de arroz, feijão, ovo, couve e bisteca, um prato bem popular.</p>
+                <p class="price">R$ 25,00</p>
+                <button onclick="addToCart('Virado à Paulista', 25.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Cuscuz com ovos">
+            <img src="Brasil/cuscuz-com-ovos.png" alt="Cuscuz com ovos">
+            <div class="menu-info">
+                <h3>Cuscuz Tradicional</h3>
+                <p>Cuscuz de milho cozido no vapor, delicadamente combinado com ovos, criando uma textura macia e
+                    saborosa.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Cuscuz Tradicional', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Farofa de Cuscuz">
+            <img src="Brasil/farofa-de-cuscuz.png" alt="Farofa de Cuscuz">
+            <div class="menu-info">
+                <h3> Farofa de Cuscuz</h3>
+                <p>Uma versão saborosa e crocante do tradicional cuscuz, transformada em farofa! Feita com flocos de
+                    milho e temperos especiais.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Farofa de Cuscuz', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Croquete de Carne">
+            <img src="Brasil/Croquete-de-Carne.png" alt="Croquete de Carne">
+            <div class="menu-info">
+                <h3>Croquete de Carne</h3>
+                <p>É um petisco feito com uma mistura na qual o ingrediente principal está presente na massa.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Croquete de Carne', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Picadinho de Carne">
+            <img src="Brasil/Picadinho_de_carne.png" alt="Picadinho de Carne">
+            <div class="menu-info">
+                <h3>Picadinho de Carne</h3>
+                <p>é um prato típico da culinária brasileira que consiste em carne picada em pequenos pedaços.</p>
+                <p class="price">R$ 25,00</p>
+                <button onclick="addToCart('Picadinho de Carne', 25.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="bebidasBra.html" class="btn-beverages">Cardápio de Bebidas</a>
+        <a href="SobremesaBra.html" class="btn-beverages">Cardápio de Sobremesas</a>
+        <a href="CardapioAsi.html" class="btn-beverages">Voltar</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

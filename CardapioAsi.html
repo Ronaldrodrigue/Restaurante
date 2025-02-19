@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Asiático</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="menu-item" data-name="Bibimbap - coreano">
+            <img src="Asiático/Bibimbap - coreano.png" alt="Bibimbap - coreano">
+            <div class="menu-info">
+                <h3>Bibimbap - (Coreano)</h3>
+                <p>um prato tradicional da culinária coreana, que significa literalmente "arroz misturado" (bibim =
+                    misturar e bap = arroz).</p>
+                <p class="price">R$ 40,00</p>
+                <button onclick="addToCart('Bibimbap - Coreano', 40.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Goi Cuon">
+            <img src="Asiático/Goi Cuon - Vietnã.png" alt="Goi Cuon">
+            <div class="menu-info">
+                <h3>Goi Cuon</h3>
+                <p>Também conhecido como rolinho primavera vietnamita ou rolinho de arroz (ou "spring roll"), é um prato
+                    tradicional.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Goi Cuon', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Katsudon - Japão">
+            <img src="Asiático/Katsudon - Japão.png" alt="Katsudon - Japão">
+            <div class="menu-info">
+                <h3>Katsudon - (Japão)</h3>
+                <p>É um prato tradicional da culinária japonesa, muito popular como uma refeição rápida e reconfortante.
+                </p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Katsudon - Japão', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Khao Soi - Tailândia">
+            <img src="Asiático/Khao Soi - Tailândia.png" alt="Khao Soi - Tailândia">
+            <div class="menu-info">
+                <h3>Khao Soi - (Tailândia)</h3>
+                <p>Um prato tradicional da culinária tailandesa, especialmente popular nas regiões do norte da
+                    Tailândia, como Chiang Mai.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Khao Soi - Tailândia', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="kimchi ">
+            <img src="Asiático/kimchi - coreano.png" alt="kimchi ">
+            <div class="menu-info">
+                <h3>kimchi</h3>
+                <p>É um prato simples, mas repleto de sabor e benefícios para a saúde, sendo um alimento central na
+                    dieta coreana.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('kimchi ', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Lumpia Semaramg">
+            <img src="Asiático/Lumpia Semaramg - Indónesia.png" alt="Lumpia Semaramg">
+            <div class="menu-info">
+                <h3>Lumpia Semaramg</h3>
+                <p>É um tipo de spring roll (rolinho primavera) tradicional da culinária indonésia, mais especificamente
+                    da cidade de Semarang.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Lumpia Semaramg', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Nasi Goreng - indónesia">
+            <img src="Asiático/Nasi Goreng - indónesia.png" alt="Nasi Goreng - indónesia">
+            <div class="menu-info">
+                <h3>Nasi Goreng - (Indónesia)</h3>
+                <p>É um dos pratos mais emblemáticos da culinária indonésia, famoso por seu sabor robusto e sua
+                    versatilidade. </p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Nasi Goreng - indónesia', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Chao kuai">
+            <img src="Asiático/Sobremesa asiáticas/Chao kuai - Sudeste Asiático.png" alt="Chao kuai">
+            <div class="menu-info">
+                <h3>Chao kuai</h3>
+                <p>Um prato chinês feito com fatias grossas de arroz de farinha de arroz cozido no vapor, depois fritas
+                    na wok com molho de soja, alho.</p>
+                <p class="price">R$ 18,00</p>
+                <button onclick="addToCart('Chao kuai', 18.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pad Thai">
+            <img src="Asiático/Pad Thai - Tailândia.png" alt="Pad Thai">
+            <div class="menu-info">
+                <h3>Pad Thai</h3>
+                <p>Um dos pratos mais famosos da culinária tailandesa. Trata-se de um macarrão de arroz frito.</p>
+                <p class="price">R$ 28,00</p>
+                <button onclick="addToCart('Pad Thai', 28.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pho Bo - Vietnã">
+            <img src="Asiático/Pho Bo - Vietnã.png" alt="Pho Bo - Vietnã">
+            <div class="menu-info">
+                <h3>Pho Bo - (Vietnã)</h3>
+                <p> É um prato tradicional e icônico da culinária vietnamita, conhecido por sua sopa de macarrão com
+                    carne de boi.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Pho Bo - Vietnã', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="SobremesaAsi.html" class="btn-beverages">Cardápio de Sobremesas</a>
+        <a href="página_inicial.html" class="btn-beverages">Voltar</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+</html>

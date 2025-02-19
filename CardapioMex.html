@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Mexicano</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Tacos">
+            <img src="México/Tacos.png" alt="Tacos">
+            <div class="menu-info">
+                <h3>Tacos</h3>
+                <p>um alimento popular internacionalmente, do tamanho de uma mão, de origem mexicana.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Tacos', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Quesadilala">
+            <img src="México/Quesadilala.png" alt="Quesadilala">
+            <div class="menu-info">
+                <h3>Quesadilala</h3>
+                <p>Feito com tortilhas de milho ou trigo recheadas com queijo e outros ingredientes.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Quesadilala', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Cochinita Pibil">
+            <img src="México/Cochinita Pibil.png" alt="Cochinita Pibil">
+            <div class="menu-info">
+                <h3>Cochinita Pibil</h3>
+                <p>É um prato tradicional da culinária mexicana, originário da região de Yucatán. Consiste em carne de
+                    porco marinada em achiote.</p>
+                <p class="price">R$ 40,00</p>
+                <button onclick="addToCart('Cochinita Pibil', 40.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Enchiladas">
+            <img src="México/Enchiladas.png" alt="Enchiladas">
+            <div class="menu-info">
+                <h3>Enchiladas</h3>
+                <p>são um prato tradicional da culinária mexicana, conhecido por suas tortilhas de milho recheadas e
+                    cobertas com molho. </p>
+                <p class="price">R$ 25,00</p>
+                <button onclick="addToCart('Enchiladas', 25.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Chiles en Nogada">
+            <img src="México/Chiles en nogada.png" alt="Chiles en Nogada">
+            <div class="menu-info">
+                <h3>Chiles en Nogada</h3>
+                <p>É um dos pratos mais emblemáticos da culinária mexicana, conhecido por suas cores vibrantes e sabor
+                    sofisticado.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Chiles en Nogada', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Chili con Carne">
+            <img src="México/Chili con Carne.png" alt="Chili con Carne">
+            <div class="menu-info">
+                <h3>Chili con Carne</h3>
+                <p>É um prato robusto e saboroso, originário da culinária tex-mex, que combina carne moída ou em pedaços
+                    cozida.</p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Chili con Carne', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Arroz à Mexicana">
+            <img src="México/Arroz à Mexicana.png" alt="Arroz à Mexicana">
+            <div class="menu-info">
+                <h3>Arroz à Mexicana</h3>
+                <p>É um prato colorido e aromático que acompanha diversas receitas da culinária mexicana. </p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Arroz à Mexicana', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Guacamole">
+            <img src="México/Guacamole.png" alt="Guacamole">
+            <div class="menu-info">
+                <h3>Guacamole</h3>
+                <p>É uma das mais tradicionais e adoradas receitas da culinária mexicana. Essa mistura fresca e cremosa.
+                </p>
+                <p class="price">R$ 25,00</p>
+                <button onclick="addToCart('Guacamole', 25.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Mole Poblano">
+            <img src="México/Mole Poblano.png" alt="Mole Poblano">
+            <div class="menu-info">
+                <h3>Mole Poblano</h3>
+                <p> É um dos pratos mais emblemáticos da culinária mexicana, especialmente associado ao estado de
+                    Puebla.</p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Mole Poblano', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pozole">
+            <img src="México/Pozole.png" alt="Pozole">
+            <div class="menu-info">
+                <h3>Pozole</h3>
+                <p> É um prato tradicional da culinária mexicana, especialmente popular em celebrações e festividades.
+                </p>
+                <p class="price">R$ 25,00</p>
+                <button onclick="addToCart('Pozole', 25.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="BebidasMex.html" class="btn-beverages">Cardápio Bebidas</a>
+        <a href="SobremesaMex.html" class="btn-beverages">Cardápio de Sobremesas</a>
+        <a href="página_inicial.html" class="btn-beverages">Voltar</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

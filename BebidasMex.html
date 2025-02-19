@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CardapioBE.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Italiano Bebidas</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Água Fresca de Melancia">
+            <img src="México/Bebidas/Água Fresca de Melancia.png" alt="Água Fresca de Melancia">
+            <div class="menu-info">
+                <h3>Água Fresca de Melancia</h3>
+                <p> É Parte suco de melancia, parte limonada e 100% refrescante, a água fresca de melancia pode ser a bebida do verão.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Água Fresca de Melancia', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Horchata">
+            <img src="México/Bebidas/horchata.png" alt="Horchata">
+            <div class="menu-info">
+                <h3>Horchata</h3>
+                <p>É  uma bebida popular e refrescante que assume diferentes formas em muitas culturas.</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Horchata', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Margarita de Pêssego">
+            <img src="México/Bebidas/Margarita de Pêssego.png" alt="Margarita de Pêssego">
+            <div class="menu-info">
+                <h3>Margarita de Pêssego</h3>
+                <p>Há várias maneiras de infundir uma bebida com frutas, como mergulhar algumas frutas.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Margarita de Pêssego', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Michelada">
+            <img src="México/Bebidas/Michelada.png" alt="Michelada">
+            <div class="menu-info">
+                <h3>Michelada</h3>
+                <p>Se você nunca tomou uma Michelada, você está em uma surpresa. A adição de molho picante.</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Michelada', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Spicy-Margarita">
+            <img src="México/Bebidas/spicy-margarita.png" alt="Spicy-Margarita">
+            <div class="menu-info">
+                <h3>Spicy-Margarita</h3>
+                <p>É uma tradicional Bebida italiana, especialmente popular, e refrescante.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Spicy-Margarita', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Tepache">
+            <img src="México/Bebidas/Tepache.png" alt="Tepache">
+            <div class="menu-info">
+                <h3>Tepache</h3>
+                <p>Você pode seguir este passo a passo para cortar seu abacaxi e produzir pedaços suculentos de fruta.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Tepache', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="SobremesaMex.html" class="btn-beverages">Cardápio de Sobremesas</a>
+        <a href="CardapioMex.html" class="btn-beverages">Voltar ao Cardápio Principal</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('demais fotos/Inmagen de fundo_conf.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: auto; 
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: scale(1);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards, slideUp 1s ease-out forwards;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 160px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #e64a19;
+    font-weight: 600;
+    margin: 5px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #777;
+}
+
+.reserva-form h2 {
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+form label {
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #e64a19;
+    outline: none;
+    box-shadow: 0 4px 20px rgba(230, 74, 25, 0.3);
+    transform: scale(1.02);
+}
+
+form button {
+    width: 100%;
+    padding: 14px;
+    background-color: #e64a19;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form button:hover {
+    background-color: #c85e2b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+form textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 30px;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    form label {
+        font-size: 1rem;
+    }
+
+    form button {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+}
+
+.btn-voltar {
+    display: inline-block;
+    background-color: #e64a19; 
+    color: white;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px 0; 
+}
+
+.btn-voltar:hover {
+    background-color: #c45b0b; 
+    transform: translateY(-3px);
+}
+
+.btn-voltar:active {
+    transform: translateY(0);
+}

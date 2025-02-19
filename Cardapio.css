@@ -1,0 +1,403 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*Cardápio*/
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px;
+    padding: 40px 10px 20px; 
+    margin-top: 80px; 
+}
+
+.menu-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item img {
+    width: 100%; 
+    height: 150px; 
+    object-fit: cover;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.menu-info {
+    padding: 5px;
+    text-align: center;
+}
+
+.menu-info h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Descrição do item com limitaçao*/
+.menu-info p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    max-height: 60px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    height: 60px; 
+    transition: all 0.3s ease; 
+}
+
+.menu-item:hover .menu-info p {
+    max-height: none; 
+    height: auto; 
+    overflow: visible; 
+    text-overflow: unset; 
+}
+
+.menu-info p {
+    transition: all 0.5s ease;
+}
+
+.menu-info .price {
+    font-size: 1.2rem;
+    color: #d63a25;
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    
+}
+
+/* Botão Adicionar ao Carrinho */
+.menu-info button {
+    background-color: #d63a25;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-info button:hover {
+    background-color: #d63a25;
+}
+/* Estilo */
+.cart-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-container:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.cart-container .bx {
+    font-size: 30px; 
+    color: #333; 
+    transition: color 0.3s ease;
+}
+
+.cart-container:hover .bx {
+    color: #ba2500; 
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff0000;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #fff; 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cart-container:hover .cart-count {
+    background-color: #ba2500; 
+    transform: scale(1.2);
+}
+
+/* Modal do carrinho */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1200; 
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.cart-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); 
+    overflow-y: auto; 
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Cabeçalho do modal */
+.cart-content h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #e64a19;
+    padding-bottom: 10px;
+}
+
+/* Lista de itens do carrinho */
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#cart-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 8px; 
+    background-color: #fafafa; 
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+}
+
+#cart-items li:hover {
+    background-color: #f1f1f1; 
+    transform: scale(1.03); 
+}
+
+#cart-items .item-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    overflow: hidden; 
+}
+
+#cart-items .item-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Nome do item */
+#cart-items .item-name {
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+    padding-left: 10px;
+}
+
+/* Estilo do valor total */
+#total-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff; 
+    background-color: #4caf50; 
+    border: 2px solid #388e3c; 
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+}
+
+#total-price:hover {
+    transform: scale(1.05); 
+    cursor: pointer; 
+}
+
+/*Quantidade*/
+#cart-items .item-quantity {
+    font-size: 1.1em;
+    color: #999;
+    margin-left: 10px;
+}
+
+#cart-items li:last-child {
+    border-bottom: none;
+}
+
+/* Botões no modal */
+button {
+    background-color: #e64a19;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px 0; 
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #c85e2b;
+    transform: translateY(-3px);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Botão de fechar e limpar */
+button:last-child {
+    background-color: #e24a2b;
+    margin-top: 10px;
+}
+
+button:last-child:hover {
+    background-color: #e24a2b;
+}
+
+/* Ajustes no menu de pesquisa */
+.search-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 20px; 
+    margin-right: 80px; 
+}
+
+#search-input {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    width: 150px;
+}
+
+#search-btn {
+    background-color: #ba3800;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+#search-btn:hover {
+    background-color: #e24a2b;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* Botão de Navegação para cardápios*/
+.btn-container {
+    display: flex;  
+    justify-content: center;  
+    gap: 20px; 
+    margin-top: 20px; 
+}
+
+.btn-beverages {
+    background-color: #d63a25;
+    padding: 12px 30px;  
+    font-size: 16px;  
+    color: white;
+    border-radius: 30px;  
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(246, 85, 21, 0.826);  
+}
+
+.btn-beverages:hover {
+    background-color: #e73e27;
+    transform: translateY(-4px);  
+    box-shadow: 0 6px 15px rgba(246, 85, 21, 0.826);  
+}
+/* Efeito quando o botão é clicado */
+.btn-beverages:active {
+    background-color: #e24a2b;  
+    transform: translateY(2px);  
+    box-shadow: 0 2px 5px rgba(246, 85, 21, 0.826);  
+}

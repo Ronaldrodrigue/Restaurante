@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CardapioBE.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Italiano Bebidas</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Garibaldi">
+            <img src="comidas italianas/Bebidas/Garibaldi.jpg" alt="Garibaldi">
+            <div class="menu-info">
+                <h3>Garibaldi</h3>
+                <p>É um coquetel simples e elegante, muito popular na Itália. Ele é feito com Campari e suco de laranja fresco.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Garibaldi', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Lemon soda">
+            <img src="comidas italianas/Bebidas/lemon soda.png" alt="Lemon soda">
+            <div class="menu-info">
+                <h3>Lemon soda</h3>
+                <p> É uma bebida refrescante, simples e deliciosa, feita com suco de limão e água com gás. A combinação do limão ácido.</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Lemon soda', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Limoncello">
+            <img src="comidas italianas/Bebidas/Limoncello.jpg" alt="Limoncello">
+            <div class="menu-info">
+                <h3>Limoncello</h3>
+                <p>É um licor italiano, tradicionalmente feito a partir de cascas de limão, álcool (geralmente grappa ou vodka) e açúcar.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Limoncello', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Rossini">
+            <img src="comidas italianas/Bebidas/Rossini.jpg" alt="Rossini">
+            <div class="menu-info">
+                <h3>Rossini</h3>
+                <p>É um coquetel sofisticado e refrescante, que combina espumante (geralmente um bom champanhe ou prosecco) com purê de morango. </p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Rossini', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Soda italiana de framboesa">
+            <img src="comidas italianas/Bebidas/soda italiana de framboesa.png" alt="Soda italiana de framboesa">
+            <div class="menu-info">
+                <h3>Soda Italiana de Framboesa</h3>
+                <p>Uma bebida refrescante e elegante, popular em cafeterias e restaurantes. </p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Soda italiana de framboesa', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Suco de uva tinto">
+            <img src="comidas italianas/Bebidas/suco de uva tinto.png" alt="Suco de uva tinto">
+            <div class="menu-info">
+                <h3>Suco de uva tinto</h3>
+                <p>Uma bebida deliciosa e saudável, feito a partir do suco das uvas tintas. Ele é conhecido por seu sabor doce e intenso.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Suco de uva tinto', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="SobremesaMex.html" class="btn-beverages">Cardápio de Sobremesas</a>
+        <a href="CardapioIta.html" class="btn-beverages">Voltar ao Cardápio Principal</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>

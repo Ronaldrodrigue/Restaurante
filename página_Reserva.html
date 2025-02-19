@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva - CulturaÀmesa</title>
+    <link rel="stylesheet" href="reservar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    </a>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="Logos/logomarca_do_site-sem fundo.png" alt="CulturaÀmesa Logo" />
+            </div>
+            <h1>CulturaÀmesa</h1>
+            <p>Uma experiência única em cada refeição</p>
+        </header>
+        <div class="reserva-form">
+            <h2>Faça sua Reserva</h2>
+            <form id="reserva-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Digite seu telefone" required>
+
+                <label for="date">Data:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Horário:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="people">Número de pessoas:</label>
+                <input type="number" id="people" name="people" min="1" max="10" required>
+
+                <label for="meal-type">Tipo de refeição:</label>
+                <select id="meal-type" name="meal-type" required>
+                    <option value="almoço">Almoço</option>
+                    <option value="jantar">Jantar</option>
+                </select>
+
+                <label for="preferencia">Preferência de mesa:</label>
+                <select id="preferencia" name="preferencia">
+                    <option value="interno">Interno</option>
+                    <option value="externo">Externo</option>
+                    <option value="janela">Perto da janela</option>
+                </select>
+
+                <label for="special-request">Pedidos especiais:</label>
+                <textarea id="special-request" name="special-request" placeholder="Digite qualquer observação ou pedido especial"></textarea>
+
+                <button type="enviar">Reservar</button>
+            </form>
+            <a href="página_inicial.html" class="btn-voltar">Voltar</a>
+        </div>
+    </div>
+
+    <script src="site.js"></script>
+</body>
+</html>

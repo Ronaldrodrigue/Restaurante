@@ -1,0 +1,236 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.finalize-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image: url('demais fotos/Inmagen de fundo_conf.jpg');  
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    background-attachment: fixed;  
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px 50px;
+    width: 100%;
+    max-width: 850px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.order-summary h3, .payment-form h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ff7e5f;
+    margin-bottom: 15px;
+}
+
+.order-summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-summary li {
+    font-size: 1.1rem;
+    color: #555;
+    padding: 10px 0;
+}
+
+.order-summary p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+.coupon-form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.coupon-form input {
+    padding: 12px;
+    font-size: 1rem;
+    width: 75%;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s;
+}
+
+.coupon-form input:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+.coupon-form button {
+    padding: 12px 25px;
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.coupon-form button:hover {
+    background-color: #feb47b;
+}
+
+.payment-form label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0 5px;
+    display: block;
+}
+
+.payment-form input,
+.payment-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.payment-form input:focus,
+.payment-form select:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+.payment-form select {
+    font-size: 1rem;
+}
+
+.cta-btn {
+    background-color: #ff7e5f;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #feb47b;
+}
+
+.payment-form label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0 5px;
+    display: block;
+}
+
+.payment-form input,
+.payment-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.payment-form input:focus,
+.payment-form select:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+.payment-form select {
+    font-size: 1rem;
+}
+
+.cta-btn {
+    background-color: #ff7e5f;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.cta-btn:hover {
+    background-color: #feb47b;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .order-summary p {
+        font-size: 1rem;
+    }
+
+    .coupon-form input,
+    .payment-form input,
+    .payment-form select,
+    .cta-btn {
+        font-size: 1rem;
+    }
+}
+
+.btn-voltar {
+    display: inline-block;
+    background-color: #e64a19;
+    color: white;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px 0;
+    text-align: center; 
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+.btn-voltar:hover {
+    background-color: #c45b0b; 
+}
+
+.btn-voltar:active {
+    transform: translateY(0);
+}

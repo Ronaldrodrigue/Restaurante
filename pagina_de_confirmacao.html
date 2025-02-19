@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Finalizar_compra.css"> 
+    <title>Finalizar Compra</title>
+</head>
+<body>
+    <section class="finalize-section">
+        <div class="container">
+            <h2 class="section-title">Finalizar Compra</h2>
+            
+            <div class="order-summary">
+                <h3>Itens no Carrinho</h3>
+                <ul id="cart-items">
+                    <li>Prato Exemplo 1 - R$ 25,00</li>
+                    <li>Prato Exemplo 2 - R$ 35,00</li>
+                    <li>Prato Exemplo 3 - R$ 20,00</li>
+                </ul>
+                <p><strong>Total: <span id="total-price">R$ 80,00</span></strong></p>
+            </div>
+
+            <div class="coupon-form">
+                <label for="coupon">Cupom de Desconto:</label>
+                <input type="text" id="coupon" name="coupon" placeholder="Digite seu cupom">
+                <button type="button" onclick="applyCoupon()">Aplicar Cupom</button>
+            </div>
+
+            <div class="payment-form">
+                <h3>Detalhes de Pagamento</h3>
+                <form id="payment-form">
+                    <label for="name">Nome Completo:</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                    <label for="address">Endereço de Entrega:</label>
+                    <input type="text" id="address" name="address" placeholder="Digite seu endereço" required>
+
+                    <label for="payment-method">Forma de Pagamento:</label>
+                    <select id="payment-method" name="payment-method">
+                        <option value="credit">Cartão de Crédito <i class="bx bxl-visa"></i></option>
+                        <option value="debit">Cartão de Débito <i class="bx bxl-mastercard"></i></option>
+                        <option value="paypal">PayPal <i class="bx bxl-paypal"></i></option>
+                        <option value="pix">PIX <i class="bx bxl-pix"></i></option>
+                    </select>
+
+                    <button type="button" class="cta-btn" onclick="finalizePurchase()">Finalizar Compra</button>
+                    
+            <a href="página_inicial.html" class="btn-voltar">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="site.js"></script>
+</body>
+</html>

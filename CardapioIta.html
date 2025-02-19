@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Cardapio.css">
+    <link rel="stylesheet" href="site.css">
+    <title>Cardápio Italiano</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="" class="logo">
+                <span>Cultura</span>À<span></span>mesa</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="página_inicial.html">Início</a></li>
+                <li class="nav-item"><a href="página_inicial.html">Reserva</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-btn">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="CardapioBra.html">Cardápio Brasileiro</a></li>
+                        <li><a href="CardapioMex.html">Cardápio Mexicano</a></li>
+                        <li><a href="CardapioIta.html">Cardápio Italiano</a></li>
+                        <li><a href="CardapioFra.html">Cardápio Frances</a></li>
+                        <li><a href="CardapioAsi.html">Cardápio Asiático</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Sobre.html">Sobre</a></li>
+                <li class="nav-item"><a href="Contatos.html">Contatos</a></li>
+                <li class="nav-item search-item">
+                    <input type="text" id="search-input" placeholder="Buscar...">
+                    <button id="search-btn"><i class='bx bx-search'></i></button>
+                </li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <i class="bx bx-cart" onclick="toggleCart()"></i>
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Carrinho</h3>
+            <ul id="cart-items"></ul>
+            <p>Total: R$ <span id="total-price">0,00</span></p>
+            <button onclick="clearCart()">Limpar Carrinho</button>
+            <button onclick="closeCart()">Fechar</button>
+            <button onclick="finalizePurchase()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-item" data-name="Almôndega">
+            <img src="comidas italianas/almôndega.png" alt="Almôndega">
+            <div class="menu-info">
+                <h3>Almôndega</h3>
+                <p> é um prato feito com pequenas porções de carne moída, geralmente bovina ou suína, misturadas com
+                    temperos.</p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Almôndega', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Bistecca alla Fiorentina">
+            <img src="comidas italianas/Bistecca alla Fiorentina.png" alt="Bistecca alla Fiorentina">
+            <div class="menu-info">
+                <h3>Bistecca alla Fiorentina</h3>
+                <p>É um icônico prato da culinária toscana, originário da cidade de Florença, na Itália. </p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Bistecca alla Fiorentina', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Bruschetta">
+            <img src="comidas italianas/Bruschetta.png" alt="Bruschetta">
+            <div class="menu-info">
+                <h3>Bruschetta</h3>
+                <p>É um aperitivo tradicional da culinária italiana, feito com fatias de pão rústico, geralmente
+                    tostadas ou grelhadas.</p>
+                <p class="price">R$ 40,00</p>
+                <button onclick="addToCart('Bruschetta', 40.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Spaghetti-Carbonara">
+            <img src="comidas italianas/Spaghetti-Carbonara_italiano.png" alt="Spaghetti-Carbonara">
+            <div class="menu-info">
+                <h3>Spaghetti-Carbonara</h3>
+                <p> É um clássico da culinária italiana, originário da região do Lácio, especialmente de Roma. </p>
+                <p class="price">R$ 45,00</p>
+                <button onclick="addToCart('Spaghetti-Carbonara', 45.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item " data-name="Fettuccine">
+            <img src="comidas italianas/fettuccine.png" alt="Fettuccine">
+            <div class="menu-info">
+                <h3>Fettuccine</h3>
+                <p>É um tipo de massa típica da culinária italiana, caracterizada por tiras longas, planas e
+                    ligeiramente largas. </p>
+                <p class="price">R$ 20,00</p>
+                <button onclick="addToCart('Fettuccine', 20.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Focaccia">
+            <img src="comidas italianas/focaccia.png" alt="Focaccia">
+            <div class="menu-info">
+                <h3>Focaccia</h3>
+                <p>É um pão italiano macio e levemente crocante, tradicional da região da Ligúria.</p>
+                <p class="price">R$ 15,00</p>
+                <button onclick="addToCart('Focaccia', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Lasanha">
+            <img src="comidas italianas/lasanha.png" alt="Lasanha">
+            <div class="menu-info">
+                <h3>Lasanha</h3>
+                <p>É um dos pratos mais icônicos da culinária italiana, feito com camadas alternadas de massa
+                    retangular, molho e recheios.</p>
+                <p class="price">R$ 10,00</p>
+                <button onclick="addToCart('Lasanha', 10.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Macarrão Itália">
+            <img src="comidas italianas/macarrão itália.png" alt="Macarrão Itália">
+            <div class="menu-info">
+                <h3>Macarrão Itália</h3>
+                <p>É uma das bases da culinária italiana e tem uma enorme variedade de formas, tamanhos e preparações.
+                </p>
+                <p class="price">R$ 30,00</p>
+                <button onclick="addToCart('Macarrão Itália', 30.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Nhoque de Molho Branco">
+            <img src="comidas italianas/nhoque de molho branco italia.png" alt="Nhoque de Molho Branco">
+            <div class="menu-info">
+                <h3>Nhoque de Molho Branco</h3>
+                <p>É uma deliciosa combinação de nhoque, uma massa de batata macia e suave, com um molho branco cremoso.
+                </p>
+                <p class="price">R$ 35,00</p>
+                <button onclick="addToCart('Nhoque de Molho Branco', 35.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="menu-item" data-name="Pizza Itália">
+            <img src="comidas italianas/pizza itália.png" alt="Pizza Itália">
+            <div class="menu-info">
+                <h3>Pizza Itália</h3>
+                <p>um dos pratos mais emblemáticos e amados da culinária italiana, com uma história rica e uma enorme
+                    variedade de estilos e sabores. </p>
+                <p class="price">R$ 50,00</p>
+                <button onclick="addToCart('Pizza Itália', 50.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="SobremesaIta.html" class="btn-beverages">Cardápio de Sobremesas</a>
+        <a href="BebidasIta.html" class="btn-beverages">Cardápio Bebidas</a>
+        <a href="página_inicial.html" class="btn-beverages">Voltar</a>
+    </div>
+
+    <script src="Cardapio.js"></script>
+</body>
+
+</html>
